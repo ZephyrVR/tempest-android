@@ -101,6 +101,7 @@ public class MainActivity extends BaseActivity {
 
         if (mainAcvitiyReceiver != null) {
             unregisterReceiver(mainAcvitiyReceiver);
+            mainAcvitiyReceiver = null;
         }
     }
 
@@ -265,6 +266,12 @@ public class MainActivity extends BaseActivity {
                     break;
                 case "notif-failed":
                     Snackbar.make(findViewById(R.id.main_content), R.string.snackbar_notif_fail, Snackbar.LENGTH_SHORT).show();
+                    break;
+                case "logout":
+                    Toast.makeText(MainActivity.this, getString(R.string.logged_out_toast), Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(i);
+                    finish();
                     break;
             }
         }
