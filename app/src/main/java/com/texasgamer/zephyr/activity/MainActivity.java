@@ -101,6 +101,7 @@ public class MainActivity extends BaseActivity {
 
         if (mainAcvitiyReceiver != null) {
             unregisterReceiver(mainAcvitiyReceiver);
+            mainAcvitiyReceiver = null;
         }
     }
 
