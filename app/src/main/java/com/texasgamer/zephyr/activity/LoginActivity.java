@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.texasgamer.zephyr.R;
+import com.texasgamer.zephyr.manager.StatusNotificationManager;
 import com.texasgamer.zephyr.util.TokenUtils;
 
 public class LoginActivity extends BaseActivity {
@@ -24,6 +25,8 @@ public class LoginActivity extends BaseActivity {
         setZephyrTypeface();
         setupLoginBtn();
         setupPrivacyPolicyBtn();
+
+        StatusNotificationManager.hideNotification(this);
     }
 
     @Override
