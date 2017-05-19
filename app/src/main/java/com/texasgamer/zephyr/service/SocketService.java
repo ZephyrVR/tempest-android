@@ -128,7 +128,7 @@ public class SocketService extends Service {
                 try {
                     String t = TokenUtils.getInstance(getBaseContext()).getAuthToken(getBaseContext());
                     token.put("token", t);
-                    // TODO: If t == null, something went wrong and we want to alert the user
+                    logoutUser();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -166,6 +166,7 @@ public class SocketService extends Service {
                 }
 
                 StatusNotificationManager.showNotification(getBaseContext(), ConnectionStatus.ERROR, R.string.connection_status_error_auth);
+                logoutUser();
             }
         }).on("authenticated", new Emitter.Listener() {
             @Override
@@ -183,6 +184,12 @@ public class SocketService extends Service {
 
     private boolean isSmartConnectEnabled() {
         return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.pref_smart_connect), true);
+    }
+
+    private void logoutUser() {
+        Intent i = new Intent("com.texasgamer.zephyr.MAIN_ACTIVITY");
+        i.putExtra("type", "logout");
+        sendBroadcast(i);
     }
 
     class SocketServiceReceiver extends BroadcastReceiver {
