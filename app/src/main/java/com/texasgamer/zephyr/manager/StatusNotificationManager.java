@@ -24,9 +24,6 @@ public class StatusNotificationManager {
         }
 
         int priority = NotificationCompat.PRIORITY_MIN;
-        if (status == ConnectionStatus.ERROR) {
-            priority = NotificationCompat.PRIORITY_DEFAULT;
-        }
 
         showNotification(context, context.getString(status.getMessage()), priority);
     }
@@ -40,9 +37,6 @@ public class StatusNotificationManager {
         String message = context.getString(status.getMessage()) + ": " + context.getString(additional);
 
         int priority = NotificationCompat.PRIORITY_MIN;
-        if (status == ConnectionStatus.ERROR) {
-            priority = NotificationCompat.PRIORITY_DEFAULT;
-        }
 
         showNotification(context, message, priority);
     }
