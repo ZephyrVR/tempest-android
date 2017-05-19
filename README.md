@@ -1,4 +1,4 @@
-# zephyr-android
+# Zephyr Android
 
 Android application which sends notifications for mirroring.
 
@@ -8,6 +8,8 @@ Android application which sends notifications for mirroring.
 [Join the beta](https://play.google.com/apps/testing/com.texasgamer.zephyr) to get early access to updates.
 
 ## Configuration
+Create a `private.properties` file and define your `ZEPHYR_API_KEY`.
+
 Firebase is used for analytics and crash reporting. Add your `google-services.json` file within
 the `app` directory to enable these features.
 
