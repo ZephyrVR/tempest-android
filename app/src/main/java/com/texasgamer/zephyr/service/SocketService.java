@@ -128,7 +128,6 @@ public class SocketService extends Service {
                 try {
                     String t = TokenUtils.getInstance(getBaseContext()).getAuthToken(getBaseContext());
                     token.put("token", t);
-                    logoutUser();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
