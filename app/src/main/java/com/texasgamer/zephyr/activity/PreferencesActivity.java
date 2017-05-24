@@ -193,17 +193,6 @@ public class PreferencesActivity extends AppCompatPreferenceActivity {
                 }
             });
 
-            findPreference(getString(R.string.pref_smart_connect)).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    Bundle b = new Bundle();
-                    String newValueStr = newValue.toString().equals("true") ? "enabled" : "disabled";
-                    b.putString(getString(R.string.analytics_param_new_value), newValueStr);
-                    activity.mMetricsManager.logEvent(R.string.analytics_tap_smart_connect, b);
-                    return true;
-                }
-            });
-
             findPreference(getString(R.string.pref_disconnect_notif)).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {

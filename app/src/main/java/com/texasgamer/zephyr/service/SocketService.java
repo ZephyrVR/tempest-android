@@ -181,10 +181,6 @@ public class SocketService extends Service {
         });
     }
 
-    private boolean isSmartConnectEnabled() {
-        return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.pref_smart_connect), true);
-    }
-
     private void logoutUser() {
         Intent i = new Intent("com.texasgamer.zephyr.MAIN_ACTIVITY");
         i.putExtra("type", "logout");
