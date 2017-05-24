@@ -18,7 +18,7 @@ Properties props = new Properties()
 try {
     props.load(file('private.properties').newDataInputStream())
 } catch (Exception ex) {
-    throw new GradleException("Missing private.properties, check the example.properties file.");
+    throw new Exception("Missing private.properties, check the example.properties file.");
 }
 
 android {
