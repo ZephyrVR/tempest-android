@@ -2,11 +2,13 @@ package com.texasgamer.zephyr.activity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.texasgamer.zephyr.Constants;
 import com.texasgamer.zephyr.R;
 import com.texasgamer.zephyr.manager.StatusNotificationManager;
 import com.texasgamer.zephyr.util.TokenUtils;
@@ -60,7 +62,8 @@ public class LoginActivity extends BaseActivity {
         findViewById(R.id.privacy_policy_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Open privacy policy page in browser
+                Log.i(TAG, "Opening privacy policy page...");
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.ZEPHYR_PRIVACY_POLICY)));
             }
         });
     }

@@ -39,7 +39,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="47dp"
         android:id="@+id/textView2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@android:color/white" />
 
     <Button
         android:layout_width="wrap_content"
@@ -58,6 +59,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="11dp"
-        android:id="@+id/privacy_policy_btn" />
+        android:id="@+id/privacy_policy_btn"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
