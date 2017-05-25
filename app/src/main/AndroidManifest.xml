@@ -54,6 +54,12 @@
             android:name=".activity.WebLoginActivity"
             android:label="@string/web_login_activity_title" />
         <activity android:name=".activity.LoginActivity" />
+        <activity
+            android:name=".activity.AboutActivity"
+            android:theme="@style/AppTheme.AboutActivity" />
+        <activity
+            android:name=".activity.LicensesActivity"
+            android:theme="@style/AppTheme.AboutActivity" />
     </application>
 
 </manifest>

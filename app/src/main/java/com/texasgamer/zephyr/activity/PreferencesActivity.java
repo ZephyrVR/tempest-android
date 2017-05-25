@@ -1,7 +1,6 @@
 package com.texasgamer.zephyr.activity;
 
 import android.annotation.TargetApi;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -25,12 +24,9 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
-import android.webkit.WebView;
 
-import com.texasgamer.zephyr.manager.MetricsManager;
 import com.texasgamer.zephyr.R;
+import com.texasgamer.zephyr.manager.MetricsManager;
 import com.texasgamer.zephyr.util.TokenUtils;
 
 import java.util.Collections;
@@ -149,7 +145,6 @@ public class PreferencesActivity extends AppCompatPreferenceActivity {
     protected boolean isValidFragment(String fragmentName) {
         return PreferenceFragment.class.getName().equals(fragmentName)
                 || GeneralPreferenceFragment.class.getName().equals(fragmentName)
-                || AboutPreferenceFragment.class.getName().equals(fragmentName)
                 || NotificationPreferenceFragment.class.getName().equals(fragmentName);
     }
 
@@ -334,61 +329,6 @@ public class PreferencesActivity extends AppCompatPreferenceActivity {
                 });
                 screen.addPreference(pref);
             }
-        }
-    }
-
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static class AboutPreferenceFragment extends PreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_about);
-            setHasOptionsMenu(true);
-
-            final PreferencesActivity activity = ((PreferencesActivity) getActivity());
-
-            activity.setBasePreferenceActivity(false);
-
-            activity.getSupportActionBar().setTitle(R.string.pref_header_about);
-            activity.mMetricsManager.logEvent(R.string.analytics_tap_about_prefs, null);
-
-            try {
-                findPreference(getString(R.string.pref_version)).setTitle(getString(R.string.pref_title_version,
-                        getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0).versionName));
-                Preference licenses = findPreference(getString(R.string.pref_licenses));
-                licenses.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                    @Override
-                    public boolean onPreferenceClick(Preference preference) {
-                        activity.mMetricsManager.logEvent(R.string.analytics_tap_licenses, null);
-
-                        final Dialog licenseDialog = new Dialog(getActivity());
-                        licenseDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                        licenseDialog.setContentView(R.layout.dialog_licenses);
-                        WindowManager.LayoutParams licenseParams = licenseDialog.getWindow().getAttributes();
-                        licenseParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-                        licenseDialog.getWindow().setAttributes(licenseParams);
-                        licenseDialog.show();
-
-                        WebView licenseWebView = (WebView) licenseDialog.findViewById(R.id.licenseWebView);
-                        licenseWebView.loadUrl("file:///android_asset/open_source_licenses.html");
-                        return true;
-                    }
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            int id = item.getItemId();
-            if (id == android.R.id.home) {
-                Intent i = new Intent(getActivity(), PreferencesActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);
-                return true;
-            }
-            return super.onOptionsItemSelected(item);
         }
     }
 }

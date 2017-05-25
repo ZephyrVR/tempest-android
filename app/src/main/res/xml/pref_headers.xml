@@ -13,8 +13,10 @@
         android:title="@string/pref_header_notifications" />
 
     <header
-        android:fragment="com.texasgamer.zephyr.activity.PreferencesActivity$AboutPreferenceFragment"
         android:icon="@drawable/ic_about"
-        android:title="@string/pref_header_about" />
+        android:title="@string/about_title">
+        <intent android:targetPackage="com.texasgamer.zephyr"
+            android:targetClass="com.texasgamer.zephyr.activity.AboutActivity" />
+    </header>
 
 </preference-headers>
