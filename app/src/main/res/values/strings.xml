@@ -73,6 +73,7 @@
     <!-- Preferences -->
     <string name="pref_first_run">firstRun</string>
     <string name="pref_disconnect_notif">disconnectNotif</string>
+    <string name="pref_usage_data">usageData</string>
     <string name="pref_device_name">deviceName</string>
     <string name="pref_app_notif_base">appNotif</string>
     <string name="pref_version">version</string>
@@ -88,6 +89,9 @@
 
     <string name="pref_title_disconnect_notif">Always Show Notification</string>
     <string name="pref_description_disconnect_notif">Show status notification even when disconnected.</string>
+
+    <string name="pref_title_usage_data">Send Usage Data</string>
+    <string name="pref_description_usage_data">Send anonymous usage data to help Zephyr development.</string>
 
     <string name="pref_title_device_name">Device Name</string>
     <string name="pref_default_device_name">Android Device</string>
@@ -141,6 +145,7 @@
 
     <string name="analytics_tap_general_prefs">tap_general_prefs</string>
     <string name="analytics_tap_disconnect_notif">tap_disconnect_notif</string>
+    <string name="analytics_tap_usage_data">tap_usage_data</string>
     <string name="analytics_tap_device_name">tap_device_name</string>
     <string name="analytics_event_empty_device_name">empty_device_name</string>
     <string name="analytics_tap_notif_prefs">tap_notif_prefs</string>

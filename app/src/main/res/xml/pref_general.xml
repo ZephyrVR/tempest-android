@@ -7,18 +7,28 @@
         android:summary="@string/pref_description_disconnect_notif"
         android:title="@string/pref_title_disconnect_notif" />
 
-    <EditTextPreference
-        android:capitalize="words"
-        android:defaultValue="@string/pref_default_device_name"
-        android:inputType="textCapWords"
-        android:key="@string/pref_device_name"
-        android:maxLines="1"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="@string/pref_title_device_name" />
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="@string/pref_usage_data"
+        android:summary="@string/pref_description_usage_data"
+        android:title="@string/pref_title_usage_data" />
 
-    <PreferenceScreen
-        android:key="@string/pref_account"
-        android:title="@string/pref_account_logout" />
+    <PreferenceCategory android:title="Account">
+
+        <EditTextPreference
+            android:capitalize="words"
+            android:defaultValue="@string/pref_default_device_name"
+            android:inputType="textCapWords"
+            android:key="@string/pref_device_name"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_title_device_name" />
+
+        <PreferenceScreen
+            android:key="@string/pref_account"
+            android:title="@string/pref_account_logout" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

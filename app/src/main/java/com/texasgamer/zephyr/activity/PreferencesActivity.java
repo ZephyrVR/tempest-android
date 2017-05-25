@@ -204,6 +204,19 @@ public class PreferencesActivity extends AppCompatPreferenceActivity {
                 }
             });
 
+            findPreference(getString(R.string.pref_usage_data)).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    Bundle b = new Bundle();
+                    String newValueStr = newValue.toString().equals("true") ? "enabled" : "disabled";
+                    b.putString(getString(R.string.analytics_param_new_value), newValueStr);
+                    activity.mMetricsManager.logEvent(R.string.analytics_tap_usage_data, b);
+                    if (newValueStr.equals("disabled"))
+                        activity.mMetricsManager.resetUuid();
+                    return true;
+                }
+            });
+
             final PreferenceScreen acctPref = (PreferenceScreen) findPreference(getString(R.string.pref_account));
 
             final TokenUtils tokenUtils = TokenUtils.getInstance(getActivity());

@@ -46,27 +46,17 @@ public class MetricsManager {
     }
 
     public void logEvent(@StringRes int iri, Bundle extras) {
-        Log.v(TAG, mContext.getString(iri) + ": " + (extras != null ? extras.toString() : "null"));
-        firebaseEvent(iri, extras);
-        fabricEvent(iri, extras);
+        if (isUsageDataEnabled()) {
+            Log.v(TAG, mContext.getString(iri) + ": " + (extras != null ? extras.toString() : "null"));
+            firebaseEvent(iri, extras);
+            fabricEvent(iri, extras);
+        }
     }
 
-    public void logLogin(String method, boolean success) {
-        Log.v(TAG, "login: " + method + " " + success);
-
-        if (Constants.FIREBASE_ANALYTICS_ENABLED) {
-            Bundle b = new Bundle();
-            b.putString(mContext.getString(R.string.analytics_param_login_method), method);
-            firebaseEvent(R.string.analytics_event_login, b);
-        }
-
-        if (!Constants.FABRIC_ANSWERS_ENABLED) {
-            if (!Fabric.isInitialized()) {
-                Fabric.with(mContext, new Crashlytics());
-            }
-
-            Answers.getInstance().logLogin(new LoginEvent().putMethod(method).putSuccess(success));
-        }
+    public void resetUuid() {
+        Log.i(TAG, "Resetting UUID.");
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        preferences.edit().putString(mContext.getString(R.string.pref_uuid), "").apply();
     }
 
     private void firebaseEvent(@StringRes int iri, Bundle extras) {
@@ -100,9 +90,15 @@ public class MetricsManager {
 
         if (uuid.isEmpty()) {
             uuid = UUID.randomUUID().toString();
+            Log.i(TAG, "Generating new UUID: " + uuid);
             preferences.edit().putString(mContext.getString(R.string.pref_uuid), uuid).apply();
         }
 
         return uuid;
+    }
+
+    private boolean isUsageDataEnabled() {
+        return PreferenceManager.getDefaultSharedPreferences(mContext)
+                .getBoolean(mContext.getString(R.string.pref_usage_data), true);
     }
 }
