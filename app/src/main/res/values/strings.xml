@@ -1,44 +1,20 @@
 <resources>
     <!-- General strings -->
     <string name="app_name">Zephyr</string>
-    <string name="ok">OK</string>
-
-    <!-- WelcomeActivity -->
-    <string name="section_format">Page %1$d</string>
-    <string name="welcome_section_one_title">Notifications, In VR</string>
-    <string name="welcome_section_one_text">Get notifications from all apps within VR.</string>
-    <string name="welcome_section_two_title">Simply Secure</string>
-    <string name="welcome_section_two_text">Notifications are kept on the local network.</string>
-    <string name="welcome_section_three_title">One More Thing</string>
-    <string name="welcome_section_three_text">Make sure the Zephyr desktop app is running.</string>
 
     <!-- MainActivity -->
     <string name="action_settings">Settings</string>
-    <string name="server_addr">Server Address</string>
-    <string name="server_addr_ex">127.0.0.1:3753</string>
     <string name="btn_connect">Connect</string>
     <string name="btn_connecting">Connecting…</string>
     <string name="btn_disconnect">Disconnect</string>
     <string name="btn_disconnecting">Disconnecting…</string>
-    <string name="btn_test_notif">Test Notification</string>
     <string name="snackbar_connected">Connected to the server.</string>
     <string name="snackbar_disconnected">Disconnected from the server.</string>
-    <string name="snackbar_not_connected">Not connected to server.</string>
     <string name="snackbar_notif_confirm">Notification successfully delivered.</string>
     <string name="snackbar_notif_fail">Unable to deliver notification.</string>
     <string name="sheet_notif_title">Enable Notification Access</string>
     <string name="sheet_notif_text">Zephyr needs access to your notifications to operate properly.</string>
     <string name="sheet_notif_btn">Enable</string>
-    <string name="card_login_title">Login to Pair</string>
-    <string name="card_login_title_new">New! Login to Pair</string>
-    <string name="card_login_text">Login to Zephyr to enable seamless pairing.</string>
-    <string name="card_login_ok">Login</string>
-    <string name="card_login_no">No Thanks</string>
-    <string name="card_profile_logout">Logout</string>
-    <string name="dialog_login_success_title">Login Successful</string>
-    <string name="dialog_login_success_body">
-        Login to the Zephyr desktop app by left clicking on the tray icon.\n\nYour server address will appear automatically.
-    </string>
     <string name="steam_hint_title">Zephyr on Steam</string>
     <string name="steam_hint_text">Download to get notifications in VR.</string>
     <string name="reddit_hint_title">Join the Subreddit</string>
@@ -76,10 +52,7 @@
     <string name="pref_usage_data">usageData</string>
     <string name="pref_device_name">deviceName</string>
     <string name="pref_app_notif_base">appNotif</string>
-    <string name="pref_version">version</string>
-    <string name="pref_licenses">licenses</string>
     <string name="pref_uuid">uuid</string>
-    <string name="pref_hide_login_card">hideLoginCard</string>
     <string name="pref_account">account</string>
 
     <string name="title_activity_preferences">Settings</string>
@@ -96,26 +69,16 @@
     <string name="pref_title_device_name">Device Name</string>
     <string name="pref_default_device_name">Android Device</string>
 
-    <string name="pref_account_login">Login</string>
-    <string name="pref_account_login_summary">Login to Zephyr to enable faster pairing.</string>
     <string name="pref_account_logout">Logout</string>
 
     <!-- Notification Settings -->
     <string name="pref_header_notifications">Notifications</string>
     <string name="action_enable_all">Enable All</string>
     <string name="action_disable_all">Disable All</string>
-
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-
-    <string name="pref_title_ringtone">Ringtone</string>
     <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate</string>
 
     <!-- AboutActivity -->
     <string name="about_title">About</string>
-    <string name="about_author_title">Author</string>
-    <string name="about_author_name">Thomas Gaubert</string>
     <string name="about_links_title">Links</string>
     <string name="about_website">Website</string>
     <string name="about_github">Fork on GitHub</string>
@@ -125,23 +88,12 @@
     <string name="activity_licenses_title">Licenses</string>
 
     <!-- Analytics -->
-    <string name="analytics_tap_next">tap_next</string>
-    <string name="analytics_tap_skip">tap_skip</string>
-    <string name="analytics_tap_finish">tap_finish</string>
-    <string name="analytics_select_page">select_page</string>
-    <string name="analytics_param_welcome_page">param_welcome_page</string>
-
     <string name="analytics_tap_settings">tap_settings</string>
     <string name="analytics_tap_connect">tap_connect</string>
     <string name="analytics_tap_disconnect">tap_disconnect</string>
     <string name="analytics_param_server_addr">param_server_addr</string>
-    <string name="analytics_tap_test_notif_connected">tap_notif_connected</string>
-    <string name="analytics_tap_test_notif_disconnected">tap_notif_disconnected</string>
     <string name="analytics_show_enable_notif_perm">show_enable_notif_perm</string>
     <string name="analytics_tap_enable_notif_perm">tap_enable_notif_perm</string>
-    <string name="analytics_tap_login_card_login">tap_login_card_login</string>
-    <string name="analytics_tap_login_card_hide">tap_login_card_hide</string>
-    <string name="analytics_tap_profile_card_logout">analytics_tap_profile_card_logout</string>
 
     <string name="analytics_tap_general_prefs">tap_general_prefs</string>
     <string name="analytics_tap_disconnect_notif">tap_disconnect_notif</string>
@@ -164,8 +116,4 @@
     <string name="analytics_event_connected">event_connected</string>
     <string name="analytics_event_disconnected">event_disconnected</string>
     <string name="analytics_event_notif_sent">event_notif_sent</string>
-    <string name="analytics_event_notif_failed">event_notif_failed</string>
-    <string name="analytics_event_ping">event_ping</string>
-    <string name="analytics_event_login">event_login</string>
-    <string name="analytics_param_login_method">login_method</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.texasgamer.zephyr.activity;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -12,8 +13,15 @@ import com.danielstone.materialaboutlibrary.util.OpenSourceLicense;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.texasgamer.zephyr.R;
+import com.texasgamer.zephyr.manager.MetricsManager;
 
 public class LicensesActivity extends MaterialAboutActivity {
+
+    @Override
+    public void onCreate(Bundle savedInstance) {
+        super.onCreate(savedInstance);
+        new MetricsManager(this).logEvent(R.string.analytics_tap_licenses, null);
+    }
 
     @NonNull
     @Override

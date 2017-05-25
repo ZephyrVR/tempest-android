@@ -176,6 +176,8 @@ public class SocketService extends Service {
                 sendBroadcast(i);
                 connected = true;
 
+                mMetricsManager.logEvent(R.string.analytics_event_connected, null);
+
                 StatusNotificationManager.showNotification(getBaseContext(), ConnectionStatus.CONNECTED);
             }
         });
@@ -197,6 +199,7 @@ public class SocketService extends Service {
                     String title = intent.getStringExtra("title");
                     String text = intent.getStringExtra("text");
                     socket.emit(mTokenUtils.getRoom() + "-notifications", buildNotificationJSONObject(title, text, ""));
+                    mMetricsManager.logEvent(R.string.analytics_event_notif_sent, null);
                 }
             } else if(type.equals("connect")) {
                 if(connected)
